@@ -44,7 +44,7 @@ Prerequisites:
 - Git
 - (Optional) Python 3.10+ if you want to run it locally without Docker.
 
-Option 1: The "Easy" Way (Docker Compose)
+## Option 1: The "Easy" Way (Docker Compose)
 This is the recommended approach. It spins up the Database, the Mock Server, and the Pipeline Service all at once with correct networking.
 
 1. Clone the repo and navigate to the root:
@@ -53,7 +53,7 @@ cd Glynac_Backend_Engineer_Assesment
 3. Build and run
 docker-compose up --build
 
-Option 2: The "Manual" Way (Local Setup)
+## Option 2: The "Manual" Way (Local Setup)
 If you prefer running things locally (or need to debug line-by-line), here is how to set up the environments manually.
 
 1. Setup the Mock Server (Flask)
@@ -75,7 +75,7 @@ pip install -r requirements.txt
 Run it (Runs on port 8000)
 python main.py
 
-🧪 How to Test
+# 🧪 How to Test
 Once the Docker containers are running, you can interact with the system using curl or your browser.
 
 1. Trigger Data Ingestion
@@ -94,8 +94,9 @@ curl "http://localhost:8000/api/customers?page=1&limit=5"
 Retrieve a specific customer by their ID.
 curl http://localhost:8000/api/customers/CUST-001
 
-📝 Notes & Gotchas
+# 📝 Notes & Gotchas
 Docker Networking: I configured docker-compose to use service names as hostnames. For example, FastAPI connects to http://mock-server:5000 internally, not localhost.
 Upsert Logic: The ingestion script checks if a customer_id exists. If it does, it updates the record; otherwise, it creates a new one. This prevents duplicates if you run the ingestion multiple times.
 The Data: I took the liberty of updating the sample data to a Stranger Things theme 🧇. Enjoy!
+
 
