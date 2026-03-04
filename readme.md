@@ -1,41 +1,67 @@
 # Backend Engineer Assessment - Data Pipeline
 
-This project implements a robust ETL (Extract, Transform, Load) pipeline using a microservices architecture. The goal was to build a system that fetches customer data from a legacy-style API, processes it, and stores it securely in a PostgreSQL database, all containerized with Docker.
+This project implements a robust ETL (Extract, Transform, Load) pipeline using a microservices architecture. The goal was to build a system that 
+
+fetches customer data from a legacy-style API, processes it, and stores it securely in a PostgreSQL database, all containerized with Docker.
 
 # 🏗 System Architecture
 I designed this using three distinct services to mimic a real-world production environment:
+
 - Mock Server (Flask): Acts as the external data source (Legacy API). It serves raw JSON customer data.
+
 - Pipeline Service (FastAPI): The core worker. It ingests data from the Mock Server, cleans/validates it, and upserts (updates/inserts) it into the database.
+
 - Database (PostgreSQL): Persistent storage for the processed customer records.
 
 The Data Flow:
+
 [Flask API] -> (JSON) -> [FastAPI Ingestor] -> (SQLAlchemy) -> [PostgreSQL]
 
 # 📂 Project Structure
+
 Here is how I organized the code. I split the logic to keep concerns separate—one service for serving data, one for processing it.
 
 Glynac_Backend_Engineer_Assesment/
+
 -> docker-compose.yml       # The glue that runs the whole stack
+
 -> README.md                # You are here!
+
 -> mock-server/             # Service 1: The Source
+
    -> app.py                 # Simple Flask app serving JSON
+   
    -> data/
+
       --> customers.json     # The raw dataset
+
    -> Dockerfile
+   
    -> requirements.txt
+
 -> pipeline-service/        # Service 2: The Ingestor
+
    -> main.py              # FastAPI entry point & endpoints
+  
    -> database.py          # DB connection logic
+  
    -> models/              # SQLAlchemy ORM models
+  
    -> services/            # Business logic (Ingestion loop)
+  
    -> Dockerfile
+  
    -> requirements.txt
     
 # 🛠 Tech Stack & Libraries
 - FastAPI: The framework used for the main pipeline service. It handles the data ingestion endpoints, processing logic, and communication with the database.
+
 - Flask: The microframework used to run the mock server. It serves the static JSON customer data via a REST API to simulate the external data source.
+
 - SQLAlchemy: The Object Relational Mapper (ORM) used to define database models and handle database sessions, allowing interaction with PostgreSQL using Python classes.
+
 - Psycopg2-binary: The PostgreSQL adapter that enables the Python application to connect to and execute commands against the database.
+
 - Docker & Docker Compose: Containerization tools used to package the applications and orchestrate the multi-container environment (Mock Server, Pipeline Service, and Database) and their networking.
 
 # 🚀 Getting Started
@@ -98,6 +124,7 @@ curl http://localhost:8000/api/customers/CUST-001
 Docker Networking: I configured docker-compose to use service names as hostnames. For example, FastAPI connects to http://mock-server:5000 internally, not localhost.
 Upsert Logic: The ingestion script checks if a customer_id exists. If it does, it updates the record; otherwise, it creates a new one. This prevents duplicates if you run the ingestion multiple times.
 The Data: I took the liberty of updating the sample data to a Stranger Things theme 🧇. Enjoy!
+
 
 
 
