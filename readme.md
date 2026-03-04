@@ -29,17 +29,17 @@ Glynac_Backend_Engineer_Assesment/
 
 -> mock-server/             # Service 1: The Source
 
-   -> app.py                 # Simple Flask app serving JSON
+   -> app.py                # Simple Flask app serving JSON
    
    -> data/
 
-      --> customers.json     # The raw dataset
+      -> customers.json      # The raw dataset
 
    -> Dockerfile
    
    -> requirements.txt
 
--> pipeline-service/        # Service 2: The Ingestor
+-> pipeline-service/       # Service 2: The Ingestor
 
    -> main.py              # FastAPI entry point & endpoints
   
@@ -66,64 +66,105 @@ Glynac_Backend_Engineer_Assesment/
 
 # 🚀 Getting Started
 Prerequisites:
+
 - Docker Desktop (running)
+  
 - Git
+  
 - (Optional) Python 3.10+ if you want to run it locally without Docker.
+  
 
 ## Option 1: The "Easy" Way (Docker Compose)
+
 This is the recommended approach. It spins up the Database, the Mock Server, and the Pipeline Service all at once with correct networking.
 
 1. Clone the repo and navigate to the root:
+   
 cd Glynac_Backend_Engineer_Assesment
 
 3. Build and run
+
 docker-compose up --build
 
 ## Option 2: The "Manual" Way (Local Setup)
+
 If you prefer running things locally (or need to debug line-by-line), here is how to set up the environments manually.
 
 1. Setup the Mock Server (Flask)
+
 cd mock-server
+
 python3 -m venv venv
+
 source venv/bin/activate
+
 pip install -r requirements.txt
+
 
 Run it (Runs on port 5000)
+
 python app.py
 
+
 2. Setup the Pipeline Service (FastAPI)
+
 Note: You will need a local Postgres instance running for this to work without Docker.
+
 cd ../pipeline-service
+
 python3 -m venv venv
+
 source venv/bin/activate
+
 pip install -r requirements.txt
 
+
+
 Run it (Runs on port 8000)
+
 python main.py
 
+
 # 🧪 How to Test
+
 Once the Docker containers are running, you can interact with the system using curl or your browser.
 
+
 1. Trigger Data Ingestion
+
 This commands the FastAPI service to go fetch data from Flask and save it to the DB.
+
 curl -X POST http://localhost:8000/api/ingest
 
+
 Expected response:
+
 {"status": "success", 
+
 "records_processed": 25}
 
+
 2. View Data (Pagination)
+
 Retrieve the data stored in Postgres.
+
 curl "http://localhost:8000/api/customers?page=1&limit=5"
 
+
 3. Get Single Customer
+
 Retrieve a specific customer by their ID.
+
 curl http://localhost:8000/api/customers/CUST-001
+
 
 # 📝 Notes & Gotchas
 Docker Networking: I configured docker-compose to use service names as hostnames. For example, FastAPI connects to http://mock-server:5000 internally, not localhost.
+
 Upsert Logic: The ingestion script checks if a customer_id exists. If it does, it updates the record; otherwise, it creates a new one. This prevents duplicates if you run the ingestion multiple times.
+
 The Data: I took the liberty of updating the sample data to a Stranger Things theme 🧇. Enjoy!
+
 
 
 
