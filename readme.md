@@ -13,55 +13,6 @@ The Data Flow:
 
 📂 Project Structure
 Here is how I organized the code. I split the logic to keep concerns separate—one service for serving data, one for processing it.
-Glynac_Backend_Engineer_Assesment/
-├── docker-compose.yml       # The glue that runs the whole stack
-├── README.md                # You are here!
-├── mock-server/             # Service 1: The Source
-│   ├── app.py               # Simple Flask app serving JSON
-│   ├── data/
-│   │   └── customers.json   # The raw dataset
-│   ├── Dockerfile
-│   └── requirements.txt
-└── pipeline-service/        # Service 2: The Ingestor
-    ├── main.py              # FastAPI entry point & endpoints
-    ├── database.py          # DB connection logic
-    ├── models/              # SQLAlchemy ORM models
-    ├── services/            # Business logic (Ingestion loop)
-    ├── Dockerfile
-    └── requirements.txt
-
-🛠 Tech Stack & Libraries
-Here is function of these specific tools used in this project:
-- FastAPI: Chosen for the ingestion service because of its speed and native async support. It handles HTTP requests significantly faster than Flask for high-throughput tasks.
-- Flask: Used for the mock server. It's lightweight and perfect for quickly spinning up a simple REST endpoint to serve static JSON.
-- SQLAlchemy: The ORM (Object Relational Mapper). It allows us to interact with the database using Python classes instead of raw SQL strings, making the code cleaner and safer against injection.
-- Psycopg2-binary: The standard PostgreSQL adapter for Python.
-- Docker & Docker Compose: Ensures the application runs exactly the same on your machine as it does on mine, handling networking between the API and the DB automatically.
-
-Gemini said
-Here is a clean, professional, and "human-written" README.md. I’ve structured it to look exactly like a standard GitHub repository documentation.
-
-I updated the folder names in the instructions to match the final refactored structure (mock-server and pipeline-service) we established in the previous steps, as that is the correct architecture for the Docker Compose file you currently have.
-
-Backend Engineer Assessment - Data Pipeline
-Hey there! 👋 Welcome to my submission for the Backend Engineer Assessment.
-
-This project implements a robust ETL (Extract, Transform, Load) pipeline using a microservices architecture. The goal was to build a system that fetches customer data from a legacy-style API, processes it, and stores it securely in a PostgreSQL database, all containerized with Docker.
-
-🏗 System Architecture
-I designed this using three distinct services to mimic a real-world production environment:
-
-Mock Server (Flask): Acts as the external data source (Legacy API). It serves raw JSON customer data.
-
-Pipeline Service (FastAPI): The core worker. It ingests data from the Mock Server, cleans/validates it, and upserts (updates/inserts) it into the database.
-
-Database (PostgreSQL): Persistent storage for the processed customer records.
-
-The Data Flow:
-[Flask API] --> (JSON) --> [FastAPI Ingestor] --> (SQLAlchemy) --> [PostgreSQL]
-
-📂 Project Structure
-Here is how I organized the code. I split the logic to keep concerns separate—one service for serving data, one for processing it.
 
 Plaintext
 Glynac_Backend_Engineer_Assesment/
