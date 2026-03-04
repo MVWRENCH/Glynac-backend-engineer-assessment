@@ -15,21 +15,21 @@ The Data Flow:
 Here is how I organized the code. I split the logic to keep concerns separate—one service for serving data, one for processing it.
 
 Glynac_Backend_Engineer_Assesment/
-├── docker-compose.yml       # The glue that runs the whole stack
-├── README.md                # You are here!
-├── mock-server/             # Service 1: The Source
-│   ├── app.py               # Simple Flask app serving JSON
-│   ├── data/
-│   │   └── customers.json   # The raw "Stranger Things" dataset
-│   ├── Dockerfile
-│   └── requirements.txt
-└── pipeline-service/        # Service 2: The Ingestor
-    ├── main.py              # FastAPI entry point & endpoints
-    ├── database.py          # DB connection logic
-    ├── models/              # SQLAlchemy ORM models
-    ├── services/            # Business logic (Ingestion loop)
-    ├── Dockerfile
-    └── requirements.txt
+-> docker-compose.yml       # The glue that runs the whole stack
+-> README.md                # You are here!
+-> mock-server/             # Service 1: The Source
+   -> app.py                 # Simple Flask app serving JSON
+   -> data/
+      --> customers.json     # The raw dataset
+   -> Dockerfile
+   -> requirements.txt
+-> pipeline-service/        # Service 2: The Ingestor
+   -> main.py              # FastAPI entry point & endpoints
+   -> database.py          # DB connection logic
+   -> models/              # SQLAlchemy ORM models
+   -> services/            # Business logic (Ingestion loop)
+   -> Dockerfile
+   -> requirements.txt
     
 # 🛠 Tech Stack & Libraries
 - FastAPI: The framework used for the main pipeline service. It handles the data ingestion endpoints, processing logic, and communication with the database.
@@ -98,5 +98,6 @@ curl http://localhost:8000/api/customers/CUST-001
 Docker Networking: I configured docker-compose to use service names as hostnames. For example, FastAPI connects to http://mock-server:5000 internally, not localhost.
 Upsert Logic: The ingestion script checks if a customer_id exists. If it does, it updates the record; otherwise, it creates a new one. This prevents duplicates if you run the ingestion multiple times.
 The Data: I took the liberty of updating the sample data to a Stranger Things theme 🧇. Enjoy!
+
 
 
