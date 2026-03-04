@@ -1,0 +1,11 @@
+# Python
+__pycache__/
+*.py[cod]
+venv/
+.env
+
+# Mac System
+.DS_Store
+
+# Docker
+postgres_data/

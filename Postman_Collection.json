@@ -1,0 +1,240 @@
+{
+  "info": {
+    "_postman_id": "5d7079f8-23bf-46f4-aef1-ffce7e31e75b",
+    "name": "Glynac Backend Engineer Assesment",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "42709385",
+    "_collection_link": "https://go.postman.co/collection/42709385-5d7079f8-23bf-46f4-aef1-ffce7e31e75b?source=collection_link"
+  },
+  "item": [
+    {
+      "name": "Flask_Server Get All Customers",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:5000/api/customers?page=1&limit=20",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "5000",
+          "path": [
+            "api",
+            "customers"
+          ],
+          "query": [
+            {
+              "key": "page",
+              "value": "1",
+              "type": "text"
+            },
+            {
+              "key": "limit",
+              "value": "20",
+              "type": "text"
+            }
+          ]
+        }
+      },
+      "response": [
+        {
+          "name": "Success",
+          "originalRequest": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:5000/api/customers?page=1&limit=20",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "5000",
+              "path": [
+                "api",
+                "customers"
+              ],
+              "query": [
+                {
+                  "key": "page",
+                  "value": "1"
+                },
+                {
+                  "key": "limit",
+                  "value": "20"
+                }
+              ]
+            }
+          },
+          "status": "OK",
+          "code": 200,
+          "_postman_previewlanguage": null,
+          "header": [
+            {
+              "key": "Server",
+              "value": "Werkzeug/3.1.6 Python/3.10.20"
+            },
+            {
+              "key": "Date",
+              "value": "Wed, 04 Mar 2026 19:50:11 GMT"
+            },
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            },
+            {
+              "key": "Content-Length",
+              "value": "6818"
+            },
+            {
+              "key": "Connection",
+              "value": "close"
+            }
+          ],
+          "cookie": [],
+          "body": "{\n    \"data\": [\n        {\n            \"account_balance\": 1100,\n            \"address\": \"4819 Cornwallis Rd, Hawkins, IN\",\n            \"created_at\": \"1983-11-06T19:00:00Z\",\n            \"customer_id\": \"CUST-001\",\n            \"date_of_birth\": \"1971-06-03\",\n            \"email\": \"eleven@hawkinslab.org\",\n            \"first_name\": \"Jane\",\n            \"last_name\": \"Hopper\",\n            \"phone\": \"+1-555-0011\"\n        },\n        {\n            \"account_balance\": 50.25,\n            \"address\": \"2530 Maple Street, Hawkins, IN\",\n            \"created_at\": \"1983-11-07T14:15:00Z\",\n            \"customer_id\": \"CUST-002\",\n            \"date_of_birth\": \"1971-04-07\",\n            \"email\": \"dungeonmaster@avclub.com\",\n            \"first_name\": \"Mike\",\n            \"last_name\": \"Wheeler\",\n            \"phone\": \"+1-555-0102\"\n        },\n        {\n            \"account_balance\": 15.5,\n            \"address\": \"1385 Cornwallis Rd, Hawkins, IN\",\n            \"created_at\": \"1983-11-08T09:30:00Z\",\n            \"customer_id\": \"CUST-003\",\n            \"date_of_birth\": \"1971-05-20\",\n            \"email\": \"dustybun@cerebro.net\",\n            \"first_name\": \"Dustin\",\n            \"last_name\": \"Henderson\",\n            \"phone\": \"+1-555-0103\"\n        },\n        {\n            \"account_balance\": 75,\n            \"address\": \"2550 Maple Street, Hawkins, IN\",\n            \"created_at\": \"1983-11-09T11:45:00Z\",\n            \"customer_id\": \"CUST-004\",\n            \"date_of_birth\": \"1971-02-15\",\n            \"email\": \"ranger@avclub.com\",\n            \"first_name\": \"Lucas\",\n            \"last_name\": \"Sinclair\",\n            \"phone\": \"+1-555-0104\"\n        },\n        {\n            \"account_balance\": 10,\n            \"address\": \"149 Coast Road, Hawkins, IN\",\n            \"created_at\": \"1983-11-06T20:00:00Z\",\n            \"customer_id\": \"CUST-005\",\n            \"date_of_birth\": \"1971-03-22\",\n            \"email\": \"will.wise@castlebyers.com\",\n            \"first_name\": \"Will\",\n            \"last_name\": \"Byers\",\n            \"phone\": \"+1-555-0105\"\n        },\n        {\n            \"account_balance\": 120.5,\n            \"address\": \"4819 Cherry Lane, Hawkins, IN\",\n            \"created_at\": \"1984-10-30T16:20:00Z\",\n            \"customer_id\": \"CUST-006\",\n            \"date_of_birth\": \"1971-09-21\",\n            \"email\": \"madmax@arcade.com\",\n            \"first_name\": \"Max\",\n            \"last_name\": \"Mayfield\",\n            \"phone\": \"+1-555-0106\"\n        },\n        {\n            \"account_balance\": 5000,\n            \"address\": \"1200 Loch Nora Dr, Hawkins, IN\",\n            \"created_at\": \"1983-12-12T10:00:00Z\",\n            \"customer_id\": \"CUST-007\",\n            \"date_of_birth\": \"1966-06-15\",\n            \"email\": \"king.steve@scoopsahoy.com\",\n            \"first_name\": \"Steve\",\n            \"last_name\": \"Harrington\",\n            \"phone\": \"+1-555-0107\"\n        },\n        {\n            \"account_balance\": 350.75,\n            \"address\": \"2530 Maple Street, Hawkins, IN\",\n            \"created_at\": \"1983-11-15T09:00:00Z\",\n            \"customer_id\": \"CUST-008\",\n            \"date_of_birth\": \"1967-08-12\",\n            \"email\": \"nancy.drew@hawkinspost.com\",\n            \"first_name\": \"Nancy\",\n            \"last_name\": \"Wheeler\",\n            \"phone\": \"+1-555-0108\"\n        },\n        {\n            \"account_balance\": 220,\n            \"address\": \"149 Coast Road, Hawkins, IN\",\n            \"created_at\": \"1983-11-15T11:30:00Z\",\n            \"customer_id\": \"CUST-009\",\n            \"date_of_birth\": \"1967-02-05\",\n            \"email\": \"j.byers@photography.com\",\n            \"first_name\": \"Jonathan\",\n            \"last_name\": \"Byers\",\n            \"phone\": \"+1-555-0109\"\n        },\n        {\n            \"account_balance\": 15,\n            \"address\": \"149 Coast Road, Hawkins, IN\",\n            \"created_at\": \"1983-09-01T08:00:00Z\",\n            \"customer_id\": \"CUST-010\",\n            \"date_of_birth\": \"1945-03-29\",\n            \"email\": \"joyce@melvaldsgeneral.com\",\n            \"first_name\": \"Joyce\",\n            \"last_name\": \"Byers\",\n            \"phone\": \"+1-555-0110\"\n        },\n        {\n            \"account_balance\": 950,\n            \"address\": \"Cabin in the Woods, Hawkins, IN\",\n            \"created_at\": \"1983-01-15T07:00:00Z\",\n            \"customer_id\": \"CUST-011\",\n            \"date_of_birth\": \"1942-05-10\",\n            \"email\": \"chief@hawkinspd.gov\",\n            \"first_name\": \"Jim\",\n            \"last_name\": \"Hopper\",\n            \"phone\": \"+1-555-0111\"\n        },\n        {\n            \"account_balance\": 45,\n            \"address\": \"4819 Cherry Lane, Hawkins, IN\",\n            \"created_at\": \"1984-06-15T13:45:00Z\",\n            \"customer_id\": \"CUST-012\",\n            \"date_of_birth\": \"1967-03-29\",\n            \"email\": \"lifeguard@hawkinspool.com\",\n            \"first_name\": \"Billy\",\n            \"last_name\": \"Hargrove\",\n            \"phone\": \"+1-555-0112\"\n        },\n        {\n            \"account_balance\": 125.5,\n            \"address\": \"100 Main St, Hawkins, IN\",\n            \"created_at\": \"1985-06-01T10:00:00Z\",\n            \"customer_id\": \"CUST-013\",\n            \"date_of_birth\": \"1968-03-10\",\n            \"email\": \"robin@familyvideo.com\",\n            \"first_name\": \"Robin\",\n            \"last_name\": \"Buckley\",\n            \"phone\": \"+1-555-0113\"\n        },\n        {\n            \"account_balance\": 500,\n            \"address\": \"2550 Maple Street, Hawkins, IN\",\n            \"created_at\": \"1985-07-04T12:00:00Z\",\n            \"customer_id\": \"CUST-014\",\n            \"date_of_birth\": \"1975-01-01\",\n            \"email\": \"cantspellamericawithout@erica.com\",\n            \"first_name\": \"Erica\",\n            \"last_name\": \"Sinclair\",\n            \"phone\": \"+1-555-0114\"\n        },\n        {\n            \"account_balance\": 15000,\n            \"address\": \"Sassafras Lane, Sesser, IL\",\n            \"created_at\": \"1984-02-14T09:15:00Z\",\n            \"customer_id\": \"CUST-015\",\n            \"date_of_birth\": \"1940-07-20\",\n            \"email\": \"bald.eagle@conspiracy.net\",\n            \"first_name\": \"Murray\",\n            \"last_name\": \"Bauman\",\n            \"phone\": \"+1-555-0115\"\n        },\n        {\n            \"account_balance\": 3000,\n            \"address\": \"Loch Nora, Hawkins, IN\",\n            \"created_at\": \"1984-05-01T08:30:00Z\",\n            \"customer_id\": \"CUST-016\",\n            \"date_of_birth\": \"1945-02-28\",\n            \"email\": \"bob.superhero@radioshack.com\",\n            \"first_name\": \"Bob\",\n            \"last_name\": \"Newby\",\n            \"phone\": \"+1-555-0116\"\n        },\n        {\n            \"account_balance\": 100000,\n            \"address\": \"Hawkins National Laboratory, Hawkins, IN\",\n            \"created_at\": \"1970-01-01T00:00:00Z\",\n            \"customer_id\": \"CUST-017\",\n            \"date_of_birth\": \"1931-11-11\",\n            \"email\": \"papa@hawkinslab.org\",\n            \"first_name\": \"Martin\",\n            \"last_name\": \"Brenner\",\n            \"phone\": \"+1-555-0117\"\n        },\n        {\n            \"account_balance\": 75000,\n            \"address\": \"Washington D.C., USA\",\n            \"created_at\": \"1984-08-10T14:00:00Z\",\n            \"customer_id\": \"CUST-018\",\n            \"date_of_birth\": \"1940-09-15\",\n            \"email\": \"dr.owens@deptenergy.gov\",\n            \"first_name\": \"Sam\",\n            \"last_name\": \"Owens\",\n            \"phone\": \"+1-555-0118\"\n        },\n        {\n            \"account_balance\": 420,\n            \"address\": \"Lenora Hills, CA\",\n            \"created_at\": \"1986-03-21T16:20:00Z\",\n            \"customer_id\": \"CUST-019\",\n            \"date_of_birth\": \"1966-04-20\",\n            \"email\": \"surferboy@pizza.com\",\n            \"first_name\": \"Argyle\",\n            \"last_name\": \"Pizza\",\n            \"phone\": \"+1-555-0119\"\n        },\n        {\n            \"account_balance\": 2.5,\n            \"address\": \"Forest Hills Trailer Park, Hawkins, IN\",\n            \"created_at\": \"1986-01-01T12:00:00Z\",\n            \"customer_id\": \"CUST-020\",\n            \"date_of_birth\": \"1965-10-31\",\n            \"email\": \"master@hellfire.club\",\n            \"first_name\": \"Eddie\",\n            \"last_name\": \"Munson\",\n            \"phone\": \"+1-555-0120\"\n        }\n    ],\n    \"limit\": 20,\n    \"page\": 1,\n    \"total\": 25\n}"
+        }
+      ]
+    },
+    {
+      "name": "Flask_Server Get Single Customer By ID",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:5000/api/customers/CUST-005",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "5000",
+          "path": [
+            "api",
+            "customers",
+            "CUST-005"
+          ]
+        }
+      },
+      "response": [
+        {
+          "name": "Success",
+          "originalRequest": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:5000/api/customers/CUST-005",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "5000",
+              "path": [
+                "api",
+                "customers",
+                "CUST-005"
+              ]
+            }
+          },
+          "status": "OK",
+          "code": 200,
+          "_postman_previewlanguage": null,
+          "header": [
+            {
+              "key": "Server",
+              "value": "Werkzeug/3.1.6 Python/3.10.20"
+            },
+            {
+              "key": "Date",
+              "value": "Wed, 04 Mar 2026 19:50:29 GMT"
+            },
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            },
+            {
+              "key": "Content-Length",
+              "value": "290"
+            },
+            {
+              "key": "Connection",
+              "value": "close"
+            }
+          ],
+          "cookie": [],
+          "body": "{\n    \"account_balance\": 10,\n    \"address\": \"149 Coast Road, Hawkins, IN\",\n    \"created_at\": \"1983-11-06T20:00:00Z\",\n    \"customer_id\": \"CUST-005\",\n    \"date_of_birth\": \"1971-03-22\",\n    \"email\": \"will.wise@castlebyers.com\",\n    \"first_name\": \"Will\",\n    \"last_name\": \"Byers\",\n    \"phone\": \"+1-555-0105\"\n}"
+        }
+      ]
+    },
+    {
+      "name": "FastAPI Ingest",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8000/api/ingest",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8000",
+          "path": [
+            "api",
+            "ingest"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "FastAPI Get All Customers",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8000/api/customers?page=1&limit=20",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8000",
+          "path": [
+            "api",
+            "customers"
+          ],
+          "query": [
+            {
+              "key": "page",
+              "value": "1"
+            },
+            {
+              "key": "limit",
+              "value": "20"
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "FastAPI Get Single Customer By ID",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8000/api/customers/CUST-001",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8000",
+          "path": [
+            "api",
+            "customers",
+            "CUST-001"
+          ]
+        }
+      },
+      "response": []
+    }
+  ]
+}
